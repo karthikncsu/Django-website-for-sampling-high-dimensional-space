@@ -1,0 +1,51 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- 
+  <div class="split left">
+    <div class="centered">
+
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p  }}
+        <button type="submit">Submit</button>
+      </form>
+
+    </div>
+  </div>
+  
+  <div class="split right">
+    <div class="centered">
+      <h1>Results</h1>
+    </div>
+  </div> -->
+
+  <div class="d-md-flex h-md-100 p-5 justify-content-center">
+
+   
+    <div class="col-md-6 p-0 bg-indigo h-md-100">
+        <div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
+            <div class="logoarea pt-5 pb-5">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p  }}
+                <button type="submit" type="file" accept="text/plain">Compute</button>
+              </form>
+              <h1>{{msg}}</h1>
+            </div>
+          </div>
+    </div>
+    
+    
+    <div class="col-md-6 p-0 bg-white h-md-100 loginarea">
+        <div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
+          <h1>Results</h1>
+        </div>
+    </div>        
+    </div>
+
+
+
+{% endblock content %}
