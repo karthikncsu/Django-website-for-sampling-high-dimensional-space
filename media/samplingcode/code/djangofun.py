@@ -54,4 +54,4 @@ def djangofun(method,filename,nsamples):
     comp_time=time.time()-start_time
 
 
-    return 1,"Successfully Computed",comp_time
+    return 1,"Successfully Computed",int(comp_time)
