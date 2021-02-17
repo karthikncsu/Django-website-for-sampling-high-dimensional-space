@@ -17,7 +17,7 @@ class HomePageView(TemplateView):
     def get(self,request):
         form=HomePageForm()
         # args={'form':form}
-        args={'form':form,"errormsg":0,'msg':"SOlution not computed",'comp_time':0}
+        args={'form':form,"errormsg":0,'msg':"Solution not computed",'comp_time':0}
 
         return render(request,self.template_name,args)
 
