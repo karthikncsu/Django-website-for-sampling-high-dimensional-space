@@ -20,15 +20,20 @@ class HomePageView(TemplateView):
             nsamples=form.cleaned_data['nsamples']
             method=form.cleaned_data['method']
 
-            uploaded_file=request.FILES['file']
-            if not uploaded_file.name.split('.')[1] in ["txt",'dat']:
-                print("Not a pdf")
-                form=HomePageForm()
-                args={'form':form,"msg":"Only text files (.txt, .out) are accepted"}
-                return render(request,self.template_name,args)
+            # uploaded_file=request.FILES['file']
+            # print("--------------------------------")
+            # print(uploaded_file)
             
-            fs=FileSystemStorage("media/samplingcode/inputs/")
-            fs.save(uploaded_file.name,uploaded_file)
+            # if not uploaded_file.name.split('.')[1] in ["txt",'dat']:
+            #     print("Not a pdf")
+            #     form=HomePageForm()
+            #     args={'form':form,"msg":"Only text files (.txt, .out) are accepted"}
+            #     return render(request,self.template_name,args)
+            
+            
+            # if 
+            # fs=FileSystemStorage("media/samplingcode/inputs/")
+            # fs.save(uploaded_file.name,uploaded_file)
 
             # import os
             # print(os.getcwd())
