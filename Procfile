@@ -1,1 +1,1 @@
-web: gunicorn ndsample.wsgi --log-file -
+web: gunicorn ndsample.wsgi --timeout 500 --keep-alive 60 --log-file -
