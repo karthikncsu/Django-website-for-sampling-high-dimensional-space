@@ -34,8 +34,19 @@
                 {{ form.as_p  }}
                 <button type="submit" type="file" accept="text/plain">Compute</button>
               </form>
+              {% if errormsg %}
+              Input file printed below
+              {% endif %}
+  
             </div>
           </div>
+          {% if errormsg %}
+            {% for arg in inputdata %}
+            {{ arg }}
+            <br>
+            {% endfor %}
+          {% endif %}
+    
     </div>
     
     
@@ -50,7 +61,7 @@
           <!-- <h1>Results</h1> -->
           {% if errormsg %}
             <!-- <img style="max-width: 110%;  max-height: 110%;" src={{ impagepath }}/> -->
-            <img src="data:image/png;base64,{{ graphic|safe }}">
+            <img style="max-width: 110%;  max-height: 110%;" src="data:image/png;base64,{{ graphic|safe }}">
           {% else %}
             <h3>{{ msg }}</h3> 
           {% endif %}

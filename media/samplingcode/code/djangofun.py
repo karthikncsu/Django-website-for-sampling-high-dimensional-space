@@ -16,11 +16,11 @@ def djangofun(method,filename,nsamples):
     method=method.lower()
 
     if filename == "formulation.txt" and method == "metropolis":
-        return 0,"Exceeding time limit for formulation problem using metropolis, select other methods ",0
+        return 0,"Exceeding time limit for formulation problem using metropolis, select other methods ",0,0
     if filename == "alloy.txt" and method == "adaptivemetropolis":
-        return 0,"Exceeding time limit for alloy problem using adaptive metropolis, select other methods ",0
+        return 0,"Exceeding time limit for alloy problem using adaptive metropolis, select other methods ",0,0
     if filename == "alloy.txt" and method == "metropolis":
-        return 0,"Exceeding time limit for alloy problem using metropolis, select other methods ",0
+        return 0,"Exceeding time limit for alloy problem using metropolis, select other methods ",0,0
 
     start_time=time.time()
 
@@ -40,7 +40,7 @@ def djangofun(method,filename,nsamples):
                         nsamples=int(n_results),
                         output_file=output_file[:-4]+"_"+method+".txt",
                         plotfigures=False,
-                        saveoutputfile=True)
+                        saveoutputfile=False)
     elif method=="metropolis" or method=="adaptivemetropolis":
         sampling=Metropolis(model=constrains,
                         qstart=constrains.get_example(),
@@ -49,7 +49,7 @@ def djangofun(method,filename,nsamples):
                         output_file=output_file[:-4]+"_"+method+".txt",
                         method=method,
                         plotfigures=False,
-                        saveoutputfile=True)
+                        saveoutputfile=False)
     naccept,acceptratio,qsamples=sampling.sample()
     comp_time=time.time()-start_time
 
