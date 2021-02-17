@@ -39,7 +39,7 @@ def djangofun(method,filename,nsamples):
                         qlims=qlims,
                         nsamples=int(n_results),
                         output_file=output_file[:-4]+"_"+method+".txt",
-                        plotfigures=True,
+                        plotfigures=False,
                         saveoutputfile=True)
     elif method=="metropolis" or method=="adaptivemetropolis":
         sampling=Metropolis(model=constrains,
@@ -48,10 +48,10 @@ def djangofun(method,filename,nsamples):
                         nsamples=int(n_results),
                         output_file=output_file[:-4]+"_"+method+".txt",
                         method=method,
-                        plotfigures=True,
+                        plotfigures=False,
                         saveoutputfile=True)
-    naccept,acceptratio=sampling.sample()
+    naccept,acceptratio,qsamples=sampling.sample()
     comp_time=time.time()-start_time
 
 
-    return 1,"Successfully Computed",int(comp_time)
+    return 1,"Successfully Computed",int(comp_time),qsamples

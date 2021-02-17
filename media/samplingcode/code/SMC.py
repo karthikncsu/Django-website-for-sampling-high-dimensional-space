@@ -49,7 +49,7 @@ class SMC(BaseClass):
         super(SMC, self).printoutput(qsamples,ntot,naccept,naccept/ntot)
         super(SMC, self).plotsamples(qsamples,self.method)
         super(SMC, self).savesamples(qsamples,self.method)
-        return naccept,naccept/ntot
+        return naccept,naccept/ntot,qsamples
 
     def SMCsampler(self):        
         """

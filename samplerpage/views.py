@@ -4,6 +4,12 @@ from .forms import HomePageForm
 from django.core.files.storage import FileSystemStorage
 import hashlib
 from media.samplingcode.code.djangofun import djangofun
+from io import BytesIO
+import base64
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
@@ -52,12 +58,28 @@ class HomePageView(TemplateView):
             msg="Not valid input"
             comp_time=0.0
         
-        errormsg,msg,comp_time= djangofun(method,selectfile,nsamples)
+        errormsg,msg,comp_time,qsamples= djangofun(method,selectfile,nsamples)
+
+        if errormsg:
+
+            fig=sns.pairplot(pd.DataFrame(qsamples), markers='o')
+
+            buffer = BytesIO()
+            fig.savefig(buffer, format='png')
+            buffer.seek(0)
+            image_png = buffer.getvalue()
+            buffer.close()
+
+            graphic = base64.b64encode(image_png)
+            graphic = graphic.decode('utf-8')
+        else:
+            graphic=0
+
         impagepath="static/images/"+selectfile[:-4]+"_"+method+".png"
 
-        print(impagepath)
 
-        args={'form':form,"errormsg":errormsg,'msg':msg,'comp_time':comp_time,"impagepath":impagepath}
+        args={'form':form,"errormsg":errormsg,'msg':msg,'comp_time':comp_time,
+        "impagepath":impagepath,'graphic':graphic}
         return render(request,self.template_name,args)
 
 

@@ -54,7 +54,7 @@ class Metropolis(BaseClass):
         super(Metropolis, self).plotsamples(qsamples,self.method)
         super(Metropolis, self).savesamples(qsamples,self.method)
 
-        return naccept,naccept/ntot
+        return naccept,naccept/ntot,qsamples
 
     def RandomWalk(self):        
         """
