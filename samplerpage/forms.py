@@ -7,6 +7,7 @@ class HomePageForm(forms.Form):
     widget=forms.Select(choices=nsamplesrange))
 
     methodchoices= [
+        ('gibbs', 'Gibbs'),
         ('smc', 'Sequential Monte Carlo'),
         ('adaptivemetropolis', 'Adaptive Metropolis'),
         ('metropolis', 'Metropolis'),

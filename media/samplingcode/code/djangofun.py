@@ -41,7 +41,7 @@ def djangofun(method,filename,nsamples):
                         output_file=output_file[:-4]+"_"+method+".txt",
                         plotfigures=False,
                         saveoutputfile=False)
-    elif method=="metropolis" or method=="adaptivemetropolis":
+    elif method=="metropolis" or method=="adaptivemetropolis" or method=="gibbs":
         sampling=Metropolis(model=constrains,
                         qstart=constrains.get_example(),
                         qlims=qlims,
