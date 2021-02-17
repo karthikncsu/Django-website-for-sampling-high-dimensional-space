@@ -7,6 +7,10 @@ name = "pypi"
 django = "*"
 gunicorn = "*"
 numpy = "*"
+matplotlib = "*"
+tqdm = "*"
+scipy = "*"
+seaborn = "*"
 
 [requires]
 python_version = "3.7"

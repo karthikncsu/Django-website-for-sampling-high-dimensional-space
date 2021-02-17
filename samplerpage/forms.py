@@ -7,17 +7,21 @@ class HomePageForm(forms.Form):
     widget=forms.Select(choices=nsamplesrange))
 
     methodchoices= [
-        ('SMC', 'Sequential Monte Carlo'),
-        ('AdaptiveMetropolis', 'Adaptive Metropolis'),
+        ('smc', 'Sequential Monte Carlo'),
+        ('adaptivemetropolis', 'Adaptive Metropolis'),
         ('metropolis', 'Metropolis'),
         ]
     method= forms.CharField(label='Method', widget=forms.Select(choices=methodchoices))
 
+    "example.txt","formulation.txt","alloy.txt"
+
     selectfilechoices= [
-        ('x+y<1', 'x+y<1'),
-        ('twocircles', 'Two circles'),
+        ('mixture.txt', 'mixture'),
+        ('example.txt', 'example'),
+        ('formulation.txt','formulation'),
+        ('alloy.txt', 'alloy'),
         ]
     selectfile= forms.CharField(label='Select a file',
     widget=forms.Select(choices=selectfilechoices))
 
-    file=forms.FileField(required=False)
+    # file=forms.FileField(required=False)

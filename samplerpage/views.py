@@ -3,15 +3,18 @@ from django.views.generic import TemplateView
 from .forms import HomePageForm
 from django.core.files.storage import FileSystemStorage
 import hashlib
-# from media.samplingcode.code.testing import *
+from media.samplingcode.code.djangofun import djangofun
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
 
     def get(self,request):
         form=HomePageForm()
-        args={'form':form}
+        # args={'form':form}
+        args={'form':form,"errormsg":0,'msg':"SOlution not computed",'comp_time':0}
+
         return render(request,self.template_name,args)
+
 
     #taking the input from the search page
     def post(self,request):
@@ -19,6 +22,7 @@ class HomePageView(TemplateView):
         if form.is_valid():
             nsamples=form.cleaned_data['nsamples']
             method=form.cleaned_data['method']
+            selectfile=form.cleaned_data['selectfile']
 
             # uploaded_file=request.FILES['file']
             # print("--------------------------------")
@@ -44,11 +48,16 @@ class HomePageView(TemplateView):
             
 
         else:
-            msg=0
-            searchtext=""
-            output=["Not valid input"]
+            errormsg=0
+            msg="Not valid input"
+            comp_time=0.0
+        
+        errormsg,msg,comp_time= djangofun(method,selectfile,nsamples)
+        impagepath="static/images/"+selectfile[:-4]+"_"+method+".png"
 
-        args={'form':form}
+        print(impagepath)
+
+        args={'form':form,"errormsg":errormsg,'msg':msg,'comp_time':comp_time,"impagepath":impagepath}
         return render(request,self.template_name,args)
 
 

@@ -8,7 +8,7 @@ from scipy.stats import norm
 import time
 import seaborn as sns
 import pandas as pd
-from baseclass import BaseClass
+from media.samplingcode.code.baseclass import BaseClass
 
 class SMC(BaseClass):
     """Class for different sampling algorithms"""
@@ -37,7 +37,7 @@ class SMC(BaseClass):
         self.ESSfract=0.5
         self.tauThres=1e6
         self.NSMC_MCMC=5
-        self.nsamples=int(self.nsamples/(self.NSMC_MCMC*0.25))
+        self.nsamples=self.nsamples
 
     def sample(self):
         """

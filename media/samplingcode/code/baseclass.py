@@ -33,14 +33,7 @@ class BaseClass:
         self.saveoutputfile=saveoutputfile
         self.sp=2.38**2/self.qstart.shape[0]
 
-        os.chdir("..")
-        outputpath= 'results'
-        if os.path.isdir(outputpath)==False:
-            print(outputpath ,"directory doesnot exist, creating one to save the output")
-            os.mkdir(outputpath)
-        os.chdir("code")
-        self.outputpath="../"+outputpath+"/"
-        self.output_file=self.outputpath+output_file
+        self.output_file=output_file
 
     def printoutput(self,qsamples,ntot,neff,accpt_ratio):
         
@@ -63,7 +56,6 @@ class BaseClass:
             if not testval:
                 print("Sampling failed for sample number:",ind)
                 print(self.model.apply_eval(list(qsamples[ind,:])))
-                sys.exit()
         print("---------Testing successful---------")
         return
 

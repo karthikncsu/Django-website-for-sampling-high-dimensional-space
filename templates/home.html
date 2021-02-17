@@ -3,6 +3,7 @@
 
 {% block content %}
 
+{% load static %}
 <!-- 
   <div class="split left">
     <div class="centered">
@@ -33,7 +34,6 @@
                 {{ form.as_p  }}
                 <button type="submit" type="file" accept="text/plain">Compute</button>
               </form>
-              <h1>{{msg}}</h1>
             </div>
           </div>
     </div>
@@ -41,7 +41,14 @@
     
     <div class="col-md-6 p-0 bg-white h-md-100 loginarea">
         <div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-          <h1>Results</h1>
+          <!-- <h1>Results</h1> -->
+          {% if errormsg %}
+            <img style="max-width: 110%;  max-height: 110%;" src={{ impagepath }}/> 
+          {% else %}
+            <h3>{{ msg }}</h3> 
+          {% endif %}
+
+
         </div>
     </div>        
     </div>

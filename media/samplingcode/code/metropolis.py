@@ -8,7 +8,7 @@ from scipy.stats import norm
 import time
 import seaborn as sns
 import pandas as pd
-from baseclass import BaseClass
+from media.samplingcode.code.baseclass import BaseClass
 
 class Metropolis(BaseClass):
     """Class for different sampling algorithms"""
@@ -38,15 +38,15 @@ class Metropolis(BaseClass):
         """
         Function to call the sampling method of choice and plot results
         """
-        if self.method=="Metropolis":
+        if self.method=="metropolis":
             print("Sampling using random walk metropolis")
             qsamples,ntot,naccept=self.RandomWalk()
-        elif self.method=="AdaptiveMetropolis":
+        elif self.method=="adaptivemetropolis":
             print("Sampling using adaptive metropolis")
             qsamples,ntot,naccept=self.AdaptiveMetropolis()
         else:
             print("Wrong choice of method for sampler algorithm")
-            sys.exit(1)
+            # sys.exit(1)
         
         print(type(qsamples))
         
