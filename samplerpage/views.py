@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from .forms import HomePageForm
 from django.core.files.storage import FileSystemStorage
 import hashlib
-from media.samplingcode.code.testing import *
+# from media.samplingcode.code.testing import *
 
 class HomePageView(TemplateView):
     template_name = 'home.html'
