@@ -22,5 +22,5 @@ The program is hosted on the Heroku server and below is the link for the website
 
 Below is the link for the Git repository of the sampling from high-dimensional space.
 
-[Sampling from high dimensional space](https://github.com/karthikncsu/Sampling-from-high-dimensional-space)
+[GitHub codeSampling from high dimensional space](https://github.com/karthikncsu/Sampling-from-high-dimensional-space)
 
