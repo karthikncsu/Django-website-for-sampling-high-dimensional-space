@@ -14,6 +14,7 @@ and one of the following examples can be selected
 3) Formulation
 4) Alloy
 
+The required packages to run this program is available in Pipfile
 ### Demo
 
 The program is hosted on the Heroku server and below is the link for the website to try out different options for sampling.
