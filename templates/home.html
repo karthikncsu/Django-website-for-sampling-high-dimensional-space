@@ -37,7 +37,10 @@
               {% if errormsg %}
               Input file printed below
               {% endif %}
-  
+              <br>
+              <br>
+              <b>Note:</b> <a>Due to the limitations with the Heroku free server, the web site returns a time-out error for cases with a computational time of more than 30 seconds. The issue will be resolved in the future. In the mean while, please try other cases.</a> 
+
             </div>
           </div>
           {% if errormsg %}
@@ -70,5 +73,6 @@
         </div>
     </div>        
     </div>
+
 
 {% endblock content %}
