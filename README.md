@@ -21,6 +21,8 @@ The program is hosted on the Heroku server and below is the link for the website
 
 [Django Website](https://sheltered-eyrie-03969.herokuapp.com/)
 
+Due to the limitation of the Heroku server, the cases with a computational time of more than 30 seconds give a time-out error.  The issue will be resolved in the future and the website can be used to solve any case. In the mean while, please try other cases.
+
 Below is the link for the Git repository of the sampling from high-dimensional space.
 
 [GitHub code for sampling from high dimensional space](https://github.com/karthikncsu/Sampling-from-high-dimensional-space)
