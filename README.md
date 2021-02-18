@@ -1,4 +1,4 @@
-# Django website for sampling from High Dimensional Space
+# Django Website for Sampling from High Dimensional Space
 
 This repository contains the integration of [sampling from high dimensional space with complex, non-linear constraints](https://github.com/karthikncsu/Sampling-from-high-dimensional-space) program into Django web framework to demo the sampler. The website provides options of selecting one of the methods from the following four methods
 
